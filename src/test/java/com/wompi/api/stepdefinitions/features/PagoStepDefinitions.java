@@ -5,6 +5,7 @@ import com.wompi.api.constans.enums.config.SerenityConf;
 import com.wompi.api.models.scena.NoteBook;
 import com.wompi.api.models.scena.Protagonist;
 import com.wompi.api.tasks.ConsultarNegocio;
+import com.wompi.api.tasks.RealizarPago;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -25,6 +26,14 @@ public class PagoStepDefinitions {
 
         actor.attemptsTo(
                 ConsultarNegocio.aliado(noteBook.getParamsNegocio())
+        );
+    }
+
+    @When("{actor} carry out the realizar el pago")
+    public void carryOutThjgfhheConsultationProcess(Actor actor, NoteBook noteBook) {
+
+        actor.attemptsTo(
+                RealizarPago.aliado(noteBook.getParamsPago())
         );
     }
 
