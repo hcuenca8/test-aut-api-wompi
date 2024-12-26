@@ -4,6 +4,7 @@ package com.wompi.api.stepdefinitions.features;
 import com.wompi.api.constans.enums.config.SerenityConf;
 import com.wompi.api.models.scena.NoteBook;
 import com.wompi.api.models.scena.Protagonist;
+import com.wompi.api.tasks.ConfirmarPago;
 import com.wompi.api.tasks.ConsultarNegocio;
 import com.wompi.api.tasks.RealizarPago;
 import io.cucumber.java.en.Given;
@@ -34,6 +35,14 @@ public class PagoStepDefinitions {
 
         actor.attemptsTo(
                 RealizarPago.aliado(noteBook.getParamsPago())
+        );
+    }
+
+    @When("{actor} carry out the confirmar el pago")
+    public void carryOutThjgfhheConsultationsfsdfsProcess(Actor actor, NoteBook noteBook) {
+
+        actor.attemptsTo(
+                ConfirmarPago.aliado(noteBook.getParamsPago())
         );
     }
 

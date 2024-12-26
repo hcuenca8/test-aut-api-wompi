@@ -13,4 +13,7 @@ public class NegocioParams {
     @JsonProperty("integracion")
     private String llaveIntegracion;
 
+    @JsonProperty("privada")
+    private String llavePrivada;
+
 }

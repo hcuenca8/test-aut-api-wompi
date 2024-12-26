@@ -1,6 +1,5 @@
 package com.wompi.api.tasks;
 
-import com.wompi.api.models.params.NegocioParams;
 import com.wompi.api.models.params.PagoParams;
 import com.wompi.api.models.requests.pago.ClientePagoRequest;
 import com.wompi.api.models.requests.pago.MetodoPagoRequest;
@@ -8,12 +7,12 @@ import com.wompi.api.models.requests.pago.PagoRequest;
 import com.wompi.api.models.responses.consultar.negocio.ConsultarNegocioResponse;
 import com.wompi.api.models.scena.Protagonist;
 import com.wompi.api.utils.json.JSONUtils;
+import com.wompi.api.utils.security.cipher.SHA256Util;
 import lombok.AllArgsConstructor;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
-import net.serenitybdd.screenplay.rest.interactions.Get;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 
 @AllArgsConstructor
@@ -29,8 +28,12 @@ public class RealizarPago implements Task {
                 .acceptPersonalAuth(Protagonist.review().hisNotebook().getConsultarNegocioResponse().getData().getPersonalToken().getAcceptanceToken())
                 .amountInCents(Long.parseLong(this.params.getValor()))
                 .currency(this.params.getMoneda())
-                .signature(null)
-                .customerEmail(this.params.getEmail())
+                .signature(SHA256Util.cifrar(
+                        this.params.getReferencia(),
+                        this.params.getValor(),
+                        this.params.getMoneda(),
+                        Protagonist.review().hisNotebook().getParamsNegocio().getLlaveIntegracion()
+                )).customerEmail(this.params.getEmail())
                 .reference(this.params.getReferencia())
                 .customerData(ClientePagoRequest.builder()
                         .legalId(this.params.getCliente().getDocumento())
@@ -54,13 +57,7 @@ public class RealizarPago implements Task {
                                 .body(JSONUtils.pasarAJson(objRequest))
                         )
         );
-        ConsultarNegocioResponse responseObj = JSONUtils.pasarAObjeto(
-                SerenityRest.lastResponse().getBody().prettyPrint(),
-                ConsultarNegocioResponse.class
-        );
-        responseObj.setCodigoHttp(String.valueOf(SerenityRest.lastResponse().statusCode()));
 
-        Protagonist.review().hisNotebook().setConsultarNegocioResponse(responseObj);
     }
 
     public static RealizarPago aliado(PagoParams params){
