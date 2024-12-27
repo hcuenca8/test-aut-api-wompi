@@ -9,7 +9,7 @@ Feature: Realizar transacciones en Wompi usando diferentes métodos de pago
   @HP
   @Regression
   @ID-01
-  Scenario Outline: Crear una transacción exitosa
+  Scenario Outline: Crear una transacción
     Given que el usuario se conecta al sistema
     When el usuario consulta los negocios
       | negocio.publica |

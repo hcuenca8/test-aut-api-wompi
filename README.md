@@ -18,10 +18,7 @@ basados en la documentación detallada que permite a los comercios afiliados cre
 2. [Tecnologias / Herramientas](#tecnologias_herramientas)
 3. [Pre-requisitos](#pre_requisitos)
 4. [Instalación](#instalacion)
-5. [Ejecución](#ejecucion)
-6. [Informe](#informe)
-7. [Ambiente](#ambientes)
-8. [Autores](#autores)
+
 
 <br>
 
@@ -115,12 +112,11 @@ Para mas información, visite:
 
 ## 📋 Pre requisitos - local [📚](#menu)
 
-1. Java 11 (JDK)
+1. Java 17 (JDK)
 2. IDE IntelliJ IDEA
    1. Con plugins:
       * Cucumber for Java
       * Gherkin
-      * HOCON
       * SonarLint
 3. Git (GUI/Bash)
 
@@ -134,11 +130,11 @@ Para mas información, visite:
 1. Clonar/descargar proyecto
 * Via HTTPS:
 ```
-git clone https://github.com/hcuenca8/test-aut-api-restapiexample.git
+git clone https://github.com/yeseniavillamil/api-wompi.git
 ```
 * Via SSH:
 ```
-git clone git@github.com:hcuenca8/test-aut-api-restapiexample.git
+git clone git@github.com:yeseniavillamil/api-wompi.git
 ```
 2. Abrir proyecto en IDE (IntelliJ o de su preferencia)
 3. Gestionar dependencias con gradle
@@ -147,87 +143,4 @@ git clone git@github.com:hcuenca8/test-aut-api-restapiexample.git
 
 <br>
 
-<div id='ejecucion'/>
 
-### 🤺 **Ejecución** [📚](#menu)
-> Para ejecutar las pruebas automatizadas, dirijase a la seccion de runners en el proyecto, elija el runner que mas se
-> ajuste a su necesidad
-* src/test/java/.../runners
-   * /features: encuentre aqui, lanzadores dedicados por funcionalidad
-   * /general: encuentre aqui, lanzadores generales, que representan un grupo de test de interes, como por ejemplo: Regresion
-
-**Desde shell / terminal dentro del proyecto**
-* **De todos los test**
-```
-
-./gradlew clean test --tests "com.restapiexample.test.automation.api.runners.general.TestTodosRunner"
-```
-
-* **De un test particular**
-```
-./gradlew clean test --tests "com.restapiexample.test.automation.api.runners.features.empleado.crear.TestCrearEmpleadoRunner"
-```
-```
-./gradlew clean test --tests "com.restapiexample.test.automation.api.runners.features.empleado.editar.TestEditarEmpleadoRunner"
-```
-```
-./gradlew clean test --tests "com.restapiexample.test.automation.api.runners.features.empleado.retirar.TestRetirarEmpleadoRunner"
-```
-```
-./gradlew clean test --tests "com.restapiexample.test.automation.api.runners.features.empleado.consultar.TestConsultarEmpleadoRunner"
-```
-```
-./gradlew clean test --tests "com.restapiexample.test.automation.api.runners.features.empleado.consultar.TestConsultarEmpleadosRunner"
-```
-
-* **De un grupo de test**
-``` 
-./gradlew clean test --tests "com.restapiexample.test.automation.api.runners.general.TestRegresionRunner"
-```
-``` 
-./gradlew clean test --tests "com.restapiexample.test.automation.api.runners.general.TestHPRunner"
-```
-``` 
-./gradlew clean test --tests "com.restapiexample.test.automation.api.runners.general.TestAPRunner"
-```
-``` 
-./gradlew clean test --tests "com.restapiexample.test.automation.api.runners.general.TestSmokeRunner"
-```
-
-**Desde IDE**
-* **De todos los test**
-```
-TestTodosRunner
-```
-* **De un test particular**
-```
-TestCrearEmpleadoRunner
-```
-```
-TestEditarEmpleadoRunner
-```
-```
-TestRetirarEmpleadoRunner
-```
-```
-TestConsultarEmpleadoRunner
-```
-```
-TestConsultarEmpleadosRunner
-```
-
-* **De un grupo de test estandar**
-```
-TestRegresionRunner
-```
-```
-TestAPRunner
-```
-```
-TestHPRunner
-```
-```
-TestSmokeRunner
-```
-
-<br>
