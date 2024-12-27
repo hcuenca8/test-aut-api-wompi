@@ -12,8 +12,11 @@ public class MetodoPagoRequest {
     @SerializedName("type")
     private String type;
 
-    @SerializedName("phone_number")
-    private String phoneNumber;
+    @SerializedName("installments")
+    private int installments;
+
+    @SerializedName("token")
+    private String token;
 
 
 

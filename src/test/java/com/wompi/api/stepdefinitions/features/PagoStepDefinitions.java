@@ -11,7 +11,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.GivenWhenThen;
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
+import org.junit.jupiter.api.Assertions;
 
 
 public class PagoStepDefinitions {
@@ -38,18 +43,21 @@ public class PagoStepDefinitions {
         );
     }
 
-    @When("el {actor} confirma el estado de la transacción")
-    public void elUsuarioConfirmaElEstadoDeLaTransacción(Actor actor, NoteBook noteBook) {
+    @When("el {actor} consulta el estado de la transacción")
+    public void elUsuarioConsultaElEstadoDeLaTransacción(Actor actor, NoteBook noteBook) {
 
         actor.attemptsTo(
                 ConfirmarPago.aliado(noteBook.getParamsPago())
         );
     }
 
-    @Then("{actor} should see {string}")
-    public void shouldSee(Actor actor, String text) {
-        System.out.println("fsdfds");
-        Protagonist.review().hisNotebook();
+    @Then("deberia haberse confirmado la transacción como: {string}")
+    public void shouldSee(String estado) {
 
+        OnStage.theActorInTheSpotlight()
+                .attemptsTo(
+                        Ensure.that(Protagonist.review().hisNotebook().getConsultarPagoResponse().getData().get(0).getStatus())
+                                .isEqualToIgnoringCase(estado)
+                );
     }
 }

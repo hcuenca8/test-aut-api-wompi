@@ -10,8 +10,8 @@ public class MetodoPagoParams {
     @JsonProperty("tipo")
     private String tipo;
 
-    @JsonProperty("telefono")
-    private String telefono;
+    @JsonProperty("tarjeta")
+    private String tarjeta;
 
 
 

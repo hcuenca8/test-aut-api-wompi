@@ -43,7 +43,8 @@ public class RealizarPago implements Task {
                         .build())
                 .paymentMethod(MetodoPagoRequest.builder()
                         .type(this.params.getMetodo().getTipo())
-                        .phoneNumber(this.params.getMetodo().getTelefono())
+                        .installments(1)
+                        .token(this.params.getMetodo().getTarjeta())
                         .build())
                         .build();
 

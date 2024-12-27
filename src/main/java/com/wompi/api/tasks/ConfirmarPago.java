@@ -5,10 +5,13 @@ import com.wompi.api.models.params.PagoParams;
 import com.wompi.api.models.requests.pago.ClientePagoRequest;
 import com.wompi.api.models.requests.pago.MetodoPagoRequest;
 import com.wompi.api.models.requests.pago.PagoRequest;
+import com.wompi.api.models.responses.consultar.negocio.ConsultarNegocioResponse;
+import com.wompi.api.models.responses.consultar.pago.ConsultarPagoResponse;
 import com.wompi.api.models.scena.Protagonist;
 import com.wompi.api.utils.json.JSONUtils;
 import com.wompi.api.utils.security.cipher.SHA256Util;
 import lombok.AllArgsConstructor;
+import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
@@ -24,7 +27,7 @@ public class ConfirmarPago implements Task {
     public <T extends Actor> void performAs(T actor)
     {
         actor.attemptsTo(
-                Stop.forA(2).seconds(),
+                Stop.forA(5).seconds(),
 
                 Get.resource(ENDPOINT)
                         .with(request -> request
@@ -34,7 +37,13 @@ public class ConfirmarPago implements Task {
                         )
         );
 
-        System.out.print("fdsf");
+        ConsultarPagoResponse responseObj = JSONUtils.pasarAObjeto(
+                SerenityRest.lastResponse().getBody().prettyPrint(),
+                ConsultarPagoResponse.class
+        );
+        responseObj.setCodigoHttp(String.valueOf(SerenityRest.lastResponse().statusCode()));
+
+        Protagonist.review().hisNotebook().setConsultarPagoResponse(responseObj);
 
     }
 
