@@ -11,12 +11,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
-import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
-import org.junit.jupiter.api.Assertions;
 
 
 public class PagoStepDefinitions {

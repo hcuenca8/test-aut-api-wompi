@@ -1,9 +1,9 @@
 package com.wompi.api.utils.objects;
 
-import com.wompi.api.utils.GeneralUtil;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wompi.api.utils.GeneralUtil;
 
 import java.util.HashMap;
 import java.util.Map;

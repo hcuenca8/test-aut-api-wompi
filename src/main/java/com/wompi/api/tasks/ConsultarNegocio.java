@@ -22,10 +22,7 @@ public class ConsultarNegocio implements Task {
         actor.attemptsTo(
 
                 Get.resource(ENDPOINT+"/"+this.params.getLlavePublica())
-                        //.with(request -> request
-                                //.header("accept", "*/*")
-                                //.queryParam("id", this.params.getId())
-                        //)
+
         );
         ConsultarNegocioResponse responseObj = JSONUtils.pasarAObjeto(
                 SerenityRest.lastResponse().getBody().prettyPrint(),

@@ -1,8 +1,8 @@
 package com.wompi.api.models.scena;
 
 
-import com.wompi.api.models.params.NegocioParams;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wompi.api.models.params.NegocioParams;
 import com.wompi.api.models.params.PagoParams;
 import com.wompi.api.models.responses.consultar.negocio.ConsultarNegocioResponse;
 import com.wompi.api.models.responses.consultar.pago.ConsultarPagoResponse;

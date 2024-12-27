@@ -27,18 +27,6 @@ Feature: Realizar transacciones en Wompi usando diferentes métodos de pago
       |DECLINED| pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7 | stagtest_integrity_nAIBuqayW70XpUqJS4qf4STYiISd89Fp | prv_stagtest_5i0ZGIGiFcDQifYsXxvsny7Y37tKqFWg | 2490000    | COP         | yeseniavillamil@gmail.com | {yyMMdd}-{HHmmss}-{###}A | 1144132574     | yesenia villamil | 3128845562    | CC                  | CARD            | tok_stagtest_5113_50b1b177b5e444c08405c11881d08008           |
 
 
-#  @HP
-#  @ID-02
-#  Scenario: Validar llave publica de autenticación exitosamente
-#    Given que el usuario se conecta al sistema
-#    When el usuario consulta los negocios
-#    Then debería recibirse respuesta exitosa
-#
-#  @AP
-#  @ID-03
-#  Scenario: Validar con una llave publica no exitosa
-#    Given que el usuario se conecta al sistema
-#    When el usuario intenta consultar los negocios
-#    Then no debería recibirse respuesta exitosa
+
 
 

@@ -2,7 +2,6 @@ package com.wompi.api.models.requests.pago;
 
 
 import com.google.gson.annotations.SerializedName;
-import com.wompi.api.models.responses.consultar.negocio.DataResponse;
 import lombok.Builder;
 import lombok.Data;
 

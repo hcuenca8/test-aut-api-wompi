@@ -1,11 +1,11 @@
 package com.wompi.api.setups.hooks.datadefinitions;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wompi.api.models.scena.NoteBook;
 import com.wompi.api.models.scena.Protagonist;
 import com.wompi.api.utils.formats.FormatUtil;
 import com.wompi.api.utils.objects.MapperUtil;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.*;
 import io.restassured.RestAssured;

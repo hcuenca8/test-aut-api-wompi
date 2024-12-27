@@ -35,14 +35,6 @@ public class SHA256Util {
         }
     }
 
-//    public static void main(String[] args) {
-//        String referencia = "12345";
-//        String monto = "100.00";
-//        String moneda = "USD";
-//        String secretoIntegridad = "SecretoClave";
-//
-//        String firma = cifrar(referencia, monto, moneda, secretoIntegridad);
-//        System.out.println("Firma generada: " + firma);
-//    }
+
 }
 
