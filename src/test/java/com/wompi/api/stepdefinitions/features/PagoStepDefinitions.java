@@ -16,30 +16,30 @@ import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
 public class PagoStepDefinitions {
 
-    @Given("{actor} is entering automated consult")
-    public void identifiedByIsEnteringAutomatedConsult(Actor actor) {
+    @Given("que el {actor} se conecta al sistema")
+    public void elUsuarioSeConectaAlSistema(Actor actor) {
 
         actor.whoCan(CallAnApi.at(SerenityConf.URL_API_WOMPI.getValue()));
     }
 
-    @When("{actor} carry out the consultation process")
-    public void carryOutTheConsultationProcess(Actor actor, NoteBook noteBook) {
+    @When("el {actor} consulta los negocios")
+    public void elUsuarioConsultaLosNegocios(Actor actor, NoteBook noteBook) {
 
         actor.attemptsTo(
                 ConsultarNegocio.aliado(noteBook.getParamsNegocio())
         );
     }
 
-    @When("{actor} carry out the realizar el pago")
-    public void carryOutThjgfhheConsultationProcess(Actor actor, NoteBook noteBook) {
+    @When("el {actor} realiza una transacion")
+    public void elUsuarioRealizaUnaTransacion(Actor actor, NoteBook noteBook) {
 
         actor.attemptsTo(
                 RealizarPago.aliado(noteBook.getParamsPago())
         );
     }
 
-    @When("{actor} carry out the confirmar el pago")
-    public void carryOutThjgfhheConsultationsfsdfsProcess(Actor actor, NoteBook noteBook) {
+    @When("el {actor} confirma el estado de la transacción")
+    public void elUsuarioConfirmaElEstadoDeLaTransacción(Actor actor, NoteBook noteBook) {
 
         actor.attemptsTo(
                 ConfirmarPago.aliado(noteBook.getParamsPago())
